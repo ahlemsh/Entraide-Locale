@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offres - EntreAide</title>
+  <link rel="stylesheet" href="../styles/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Navigation Header -->
+  <header class="header">
+    <div class="header-container">
+      <div class="logo">
+        <span class="logo-text">EntreAide</span>
+      </div>
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">Accueil</a>
+        <a href="requests.html" class="nav-link">Demandes</a>
+        <a href="offers.html" class="nav-link nav-link-active">Offres</a>
+        <a href="messages.html" class="nav-link">Messages</a>
+        <a href="profile.html" class="nav-link">Profil</a>
+        <a href="admin-offers.html" class="nav-link" style="color: #e74c3c;">Admin</a>
+      </nav>
+      <div id="authMenu" class="auth-menu"></div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container page-container">
+      <!-- Filtres (comme sur la page Demandes) -->
+      <aside class="filters-sidebar">
+        <h3>Filtres</h3>
+
+        <!-- Catégorie -->
+        <div class="filter-group">
+          <label for="offerCategoryFilter">Catégorie</label>
+          <select id="offerCategoryFilter" class="filter-input">
+            <option value="">Toutes les catégories</option>
+            <option value="Éducation">Éducation</option>
+            <option value="Informatique">Informatique</option>
+            <option value="Services">Services</option>
+            <option value="Cuisine">Cuisine</option>
+          </select>
+        </div>
+
+        <!-- Quartier -->
+        <div class="filter-group">
+          <label for="offerQuartierFilter">Quartier</label>
+          <select id="offerQuartierFilter" class="filter-input">
+            <option value="">Tous les quartiers</option>
+            <option value="Centre">Centre</option>
+            <option value="Nord">Nord</option>
+            <option value="Sud">Sud</option>
+            <option value="Est">Est</option>
+            <option value="Ouest">Ouest</option>
+          </select>
+        </div>
+
+        <!-- Recherche -->
+        <div class="filter-group">
+          <label for="offerSearchFilter">Recherche</label>
+          <input type="text" id="offerSearchFilter" class="filter-input" placeholder="Rechercher...">
+        </div>
+
+        <button id="offerApplyFilters" class="btn btn-primary">Appliquer les filtres</button>
+      </aside>
+
+      <!-- Liste des Offres -->
+      <section class="requests-list">
+        <h2>Toutes les Offres</h2>
+        <div id="offersListContainer" class="cards-list">
+          <!-- Dynamically loaded by app.js -->
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 EntreAide. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <script src="../js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      renderAuthMenu();
+      loadOffers();
+
+      // Écouteurs sur les filtres (comme pour les demandes)
+      const applyBtn = document.getElementById('offerApplyFilters');
+      const categorySelect = document.getElementById('offerCategoryFilter');
+      const quartierSelect = document.getElementById('offerQuartierFilter');
+      const searchInput = document.getElementById('offerSearchFilter');
+
+      if (applyBtn) applyBtn.addEventListener('click', loadOffers);
+      if (categorySelect) categorySelect.addEventListener('change', loadOffers);
+      if (quartierSelect) quartierSelect.addEventListener('change', loadOffers);
+      if (searchInput) searchInput.addEventListener('input', loadOffers);
+    });
+  </script>
+</body>
+
+</html>

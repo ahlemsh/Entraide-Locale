@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Offres - EntreAide</title>
+  <link rel="stylesheet" href="../styles/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navigation Header -->
+  <header class="header">
+    <div class="header-container">
+      <div class="logo">
+        <span class="logo-text">EntreAide Admin</span>
+      </div>
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">Accueil</a>
+        <a href="admin-requests.html" class="nav-link">Admin Demandes</a>
+        <a href="admin-offers.html" class="nav-link active">Admin Offres</a>
+        <a href="profile.html" class="nav-link">Profil</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+      <div id="adminOffersContainer">
+        <!-- Dynamically loaded by app.js -->
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 EntreAide Admin. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <script src="../js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // 🔐 Vérifier que l'utilisateur est bien admin
+      if (!requireAdminAuth()) {
+        return; // on arrête là si pas admin
+      }
+
+      // Si OK : on charge le dashboard admin
+      loadAdminOffersDashboard();
+    });
+  </script>
+  </body>
+  
+  </html>
+

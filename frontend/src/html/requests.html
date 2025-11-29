@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demandes - EntreAide</title>
+  <link rel="stylesheet" href="../styles/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navigation Header -->
+  <header class="header">
+    <div class="header-container">
+      <div class="logo">
+        <span class="logo-text">EntreAide</span>
+      </div>
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">Accueil</a>
+        <a href="requests.html" class="nav-link active">Demandes</a>
+        <a href="offers.html" class="nav-link">Offres</a>
+        <a href="messages.html" class="nav-link">Messages</a>
+        <a href="profile.html" class="nav-link">Profil</a>
+        <a href="admin-requests.html" class="nav-link" style="color: #e74c3c;">Admin</a>
+      </nav>
+      <!-- Add auth menu -->
+      <div id="authMenu" class="auth-menu"></div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container page-container">
+      <!-- Filters Section -->
+      <aside class="filters-sidebar">
+        <h3>Filtres</h3>
+        
+        <div class="filter-group">
+          <label for="categoryFilter">Catégorie</label>
+          <select id="categoryFilter" class="filter-input">
+            <option value="">Toutes les catégories</option>
+            <option value="Courses">Courses</option>
+            <option value="Informatique">Informatique</option>
+            <option value="Ménage">Ménage</option>
+            <option value="Déménagement">Déménagement</option>
+            <option value="Garde">Garde d'enfants</option>
+            <option value="Réparation">Réparation</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="quartierFilter">Quartier</label>
+          <select id="quartierFilter" class="filter-input">
+            <option value="">Tous les quartiers</option>
+            <option value="Centre">Centre</option>
+            <option value="Nord">Nord</option>
+            <option value="Sud">Sud</option>
+            <option value="Est">Est</option>
+            <option value="Ouest">Ouest</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="statusFilter">Statut</label>
+          <select id="statusFilter" class="filter-input">
+            <option value="">Tous les statuts</option>
+            <option value="open">Ouverte</option>
+            <option value="closed">Fermée</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="searchFilter">Recherche</label>
+          <input type="text" id="searchFilter" class="filter-input" placeholder="Rechercher...">
+        </div>
+
+        <button id="applyFilters" class="btn btn-primary">Appliquer les filtres</button>
+      </aside>
+
+      <!-- Requests List -->
+      <section class="requests-list">
+        <h2>Demandes</h2>
+        <div id="filteredRequestsContainer" class="cards-list">
+          <!-- Dynamically loaded by app.js -->
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 EntreAide. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <script src="../js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      renderAuthMenu();
+      loadRequests();
+      
+      document.getElementById('applyFilters').addEventListener('click', loadRequests);
+      document.getElementById('categoryFilter').addEventListener('change', loadRequests);
+      document.getElementById('quartierFilter').addEventListener('change', loadRequests);
+      document.getElementById('statusFilter').addEventListener('change', loadRequests);
+      document.getElementById('searchFilter').addEventListener('input', loadRequests);
+    });
+  </script>
+</body>
+</html>
