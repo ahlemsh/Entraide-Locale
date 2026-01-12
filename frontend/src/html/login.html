@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connexion - Entraide</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/style.css">
+</head>
+
+<body>
+  <header class="header">
+    <div class="header-container">
+      <div class="logo"><span class="logo-text">Entraide</span></div>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Accueil</a></li>
+        <li><a href="register.html" class="nav-link">Inscription</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="main-content">
+    <div class="container" style="max-width: 450px; margin: 60px auto;">
+      <div class="form-header">
+        <h2>Connexion</h2>
+        <p>Accédez à votre compte Entraide</p>
+      </div>
+
+      <div class="form-container">
+        <!-- Utilisation de submitLogin(event) pour appeler l'API -->
+        <form id="loginForm" onsubmit="submitLogin(event)">
+          <div class="form-group">
+            <label for="loginEmail">Email *</label>
+            <input type="email" id="loginEmail" name="loginEmail" class="form-input" required>
+          </div>
+
+          <div class="form-group">
+            <label for="loginPassword">Mot de passe *</label>
+            <input type="password" id="loginPassword" name="loginPassword" class="form-input" required>
+          </div>
+
+          <div class="form-group" style="display: flex; justify-content: space-between; align-items: center;">
+            <label style="display: flex; gap: 8px; align-items: center; margin: 0;">
+              <input type="checkbox" id="rememberMe" name="rememberMe">
+              Se souvenir de moi
+            </label>
+            <a href="#" style="color: var(--primary); text-decoration: none; font-size: 14px;">Mot de passe oublié?</a>
+          </div>
+
+          <div id="loginErrorMessage" style="color: var(--danger); margin-bottom: 16px; display: none;"></div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Se connecter</button>
+
+          <p style="text-align: center; margin-top: 16px; color: #666;">
+            Pas encore de compte? <a href="register.html"
+              style="color: var(--primary); text-decoration: none; font-weight: 600;">S'inscrire</a>
+          </p>
+        </form>
+
+        <div style="margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border);">
+          <p style="text-align: center; color: #999; font-size: 13px; margin-bottom: 16px;">Ou utilisez les identifiants
+            de test:</p>
+          <div style="background-color: var(--light-gray); padding: 12px; border-radius: 8px; font-size: 12px;">
+            <p style="cursor: pointer; text-decoration: underline;" onclick="fillForm(userEmail, userPassword)"
+              title="Cliquez pour remplir"><strong>Utilisateur (Cliquez ici)</strong></p>
+            <p>Email: alice@entraide.tn<br>Mot de passe: alice123</p>
+            <br>
+            <p style="cursor: pointer; text-decoration: underline;" onclick="fillForm(adminEmail, adminPassword)"
+              title="Cliquez pour remplir"><strong>Administrateur (Cliquez ici)</strong></p>
+            <p>Email: admin@entraide.tn<br>Mot de passe: admin123</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Entraide - Plateforme d'entraide communautaire</p>
+    </div>
+  </footer>
+
+  <script src="../js/app.js"></script>
+  <script>
+    // Identifiants MOCK pour faciliter la démo (correspondent à la BDD)
+    const userEmail = "alice@entraide.tn";
+    const userPassword = "alice123";
+
+    const adminEmail = "admin@entraide.tn";
+    const adminPassword = "admin123";
+
+    function fillForm(email, password) {
+      document.getElementById('loginEmail').value = email;
+      document.getElementById('loginPassword').value = password;
+    }
+
+    // Pré-remplissage de l'email si "Se souvenir de moi"
+    window.addEventListener('DOMContentLoaded', function () {
+      const savedEmail = localStorage.getItem('rememberEmail');
+      if (savedEmail) {
+        document.getElementById('loginEmail').value = savedEmail;
+        document.getElementById('rememberMe').checked = true;
+      }
+    });
+  </script>
+</body>
+
+</html>

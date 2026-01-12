@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inscription - Entraide</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-container">
+      <div class="logo"><span class="logo-text">Entraide</span></div>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Accueil</a></li>
+        <li><a href="login.html" class="nav-link">Connexion</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="main-content">
+    <div class="container form-page">
+      <div class="form-header">
+        <h2>Créer un Compte</h2>
+        <p>Rejoignez notre communauté d'entraide</p>
+      </div>
+
+      <div class="form-container">
+        <form id="registerForm" onsubmit="submitRegister(event)">
+          <div class="form-group">
+            <label for="registerName">Nom complet *</label>
+            <input type="text" id="registerName" class="form-input" placeholder="Prénom et Nom" required>
+          </div>
+
+          <div class="form-group">
+            <label for="registerEmail">Email *</label>
+            <input type="email" id="registerEmail" class="form-input" required>
+          </div>
+
+          <div class="form-group">
+            <label for="registerPassword">Mot de passe *</label>
+            <input type="password" id="registerPassword" class="form-input" required minlength="6">
+            <small style="color: #999; margin-top: 4px; display: block;">Minimum 6 caractères</small>
+          </div>
+
+          <div class="form-group">
+            <label for="registerQuartier">Quartier *</label>
+            <select id="registerQuartier" class="form-input" required>
+              <option value="">Sélectionnez un quartier</option>
+              <option value="Centre">Centre</option>
+              <option value="Nord">Nord</option>
+              <option value="Sud">Sud</option>
+              <option value="Est">Est</option>
+              <option value="Ouest">Ouest</option>
+            </select>
+          </div>
+
+          <div class="form-group" style="display: flex; gap: 12px; align-items: center;">
+            <input type="checkbox" id="terms" name="terms" required>
+            <label for="terms" style="margin: 0;">J'accepte les <a href="#" style="color: var(--primary); text-decoration: none;">conditions d'utilisation</a> *</label>
+          </div>
+
+          <div class="form-actions" style="display: flex; gap: 12px;">
+            <button type="submit" class="btn btn-primary" style="flex: 1;">Créer un compte</button>
+            <button type="reset" class="btn btn-secondary" style="flex: 1; background-color: #999;">Annuler</button>
+          </div>
+
+          <p style="text-align: center; margin-top: 16px; color: #666;">
+            Vous avez déjà un compte? <a href="login.html" style="color: var(--primary); text-decoration: none; font-weight: 600;">Se connecter</a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Entraide - Plateforme d'entraide communautaire</p>
+    </div>
+  </footer>
+
+  <script src="../js/app.js"></script>
+</body>
+</html>
