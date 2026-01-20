@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notifications - Entraide</title>
+  <link rel="stylesheet" href="../styles/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <div class="header-container">
+      <div class="logo">
+        <svg width="40" height="40" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; margin-right: 10px;">
+          <circle cx="100" cy="100" r="95" fill="#FDF5E6" stroke="#1a3a52" stroke-width="8"/>
+          <circle cx="100" cy="55" r="18" fill="#A8D5BA" stroke="#1a3a52" stroke-width="3"/>
+          <path d="M 50 110 Q 45 90 55 80 Q 65 75 72 85 L 75 95 M 65 100 L 62 92 M 72 105 L 70 95" fill="#5B9BD5" stroke="#1a3a52" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+          <path d="M 50 110 Q 48 120 52 135 Q 58 140 68 135 Q 70 125 68 115" fill="#5B9BD5" stroke="#1a3a52" stroke-width="3" stroke-linejoin="round"/>
+          <path d="M 150 110 Q 155 90 145 80 Q 135 75 128 85 L 125 95 M 135 100 L 138 92 M 128 105 L 130 95" fill="#F4A833" stroke="#1a3a52" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+          <path d="M 150 110 Q 152 120 148 135 Q 142 140 132 135 Q 130 125 132 115" fill="#F4A833" stroke="#1a3a52" stroke-width="3" stroke-linejoin="round"/>
+          <line x1="70" y1="105" x2="130" y2="105" stroke="#1a3a52" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+        <span class="logo-text">Entraide</span>
+      </div>
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">Accueil</a>
+        <a href="requests.html" class="nav-link">Demandes</a>
+        <a href="offers.html" class="nav-link">Offres</a>
+        <a href="messages.html" class="nav-link">Messages</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+        <a href="profile.html" class="nav-link">Profil</a>
+      </nav>
+      <div id="authMenu" class="auth-menu"></div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+      <h1>Notifications</h1>
+      <div id="notificationsContainer" class="notifications-list"></div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Entraide. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <script src="../js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (requireAuth()) {
+        loadNotifications();
+        renderAuthMenu();
+      }
+    });
+  </script>
+</body>
+</html>
